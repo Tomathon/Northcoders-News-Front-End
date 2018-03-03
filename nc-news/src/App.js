@@ -4,6 +4,8 @@ import './App.css';
 import Home from './Home';
 import TopicArticles from './TopicArticles';
 import Article from './Article';
+import Articles from './Articles';
+import User from './User';
 
 class App extends Component {
   
@@ -36,6 +38,8 @@ class App extends Component {
             <Route exact path='/' render={() => <Home topics={this.state.topics}/>}/>
             <Route exact path='/:topic_id/articles' component={TopicArticles}/>
             <Route exact path='/articles/:article_id' component={Article}/>
+            <Route exact path='/articles' component={Articles}/>
+            <Route exact path='/users/:user' component={User}/>
           </div>
         </div>
       </BrowserRouter>
