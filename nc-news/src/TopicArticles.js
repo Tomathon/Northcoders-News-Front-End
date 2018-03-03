@@ -6,12 +6,12 @@ class TopicArticles extends Component {
     articles: []
   }
 
-  componentDidMount() {
-    this.getArticlesByTopicId(this.props.match.params.topic_id)
+  componentDidMount = topic => {
+    this.getArticlesByTopic(this.props.match.params.topic)
   }
 
-  getArticlesByTopicId = topic_id => {
-    fetch(`https://pure-thicket-72217.herokuapp.com/api/topics/${topic_id}/articles`)
+  getArticlesByTopic = topic => {
+    fetch(`https://pure-thicket-72217.herokuapp.com/api/topics/${topic}/articles`)
       .then(buffer => buffer.json())
       .then(res => {
         this.setState({
