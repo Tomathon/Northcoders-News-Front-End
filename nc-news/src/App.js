@@ -6,6 +6,7 @@ import TopicArticles from './TopicArticles';
 import Article from './Article';
 import Articles from './Articles';
 import User from './User';
+import Comments from './Comments';
 
 class App extends Component {
   
@@ -40,6 +41,7 @@ class App extends Component {
             <Route exact path='/articles/:article_id' component={Article}/>
             <Route exact path='/articles' component={Articles}/>
             <Route exact path='/users/:user' component={User}/>
+            <Route exact path='/articles/:article_id/comments' component={Comments}/>
           </div>
         </div>
       </BrowserRouter>
