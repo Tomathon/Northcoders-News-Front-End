@@ -8,7 +8,7 @@ class Home extends Component {
         {this.props.topics.map((topic, i) => {
           return (
             <div key={i}> 
-              <Link to={`/${topic.slug}/articles`}> 
+              <Link to={`/${topic._id}/articles`}> 
                 <h2>{topic.title}</h2>
               </Link>
             </div>
