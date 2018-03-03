@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import Home from './Home';
 import TopicArticles from './TopicArticles';
+import Article from './Article';
 
 class App extends Component {
   
@@ -34,6 +35,7 @@ class App extends Component {
           <div>
             <Route exact path='/' render={() => <Home topics={this.state.topics}/>}/>
             <Route exact path='/:topic_id/articles' component={TopicArticles}/>
+            <Route exact path='/articles/:article_id' component={Article}/>
           </div>
         </div>
       </BrowserRouter>
