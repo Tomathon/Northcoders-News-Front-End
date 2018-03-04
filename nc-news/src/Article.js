@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 class Article extends Component {
 
   state = {
-    title: '',
-    body: '',
-    created_by: '',
-    belongs_to: '',
+    title: "",
+    body: "",
+    created_by: "",
+    belongs_to: "",
     comments: [],
     votes: 0
   }
