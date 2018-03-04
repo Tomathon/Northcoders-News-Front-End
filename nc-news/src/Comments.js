@@ -7,7 +7,7 @@ class Comments extends Component {
     article: {},
     comments: [],
     comment: {},
-    value: ''
+    value: ""
   }
 
   componentDidMount = article_id => {
@@ -27,16 +27,28 @@ class Comments extends Component {
     this.postComment(comment);
   }
 
+  deleteComment = (comment_id, author) => {
+    if (author === "northcoder") {
+      fetch(`https://pure-thicket-72217.herokuapp.com/api/comments/${comment_id}`, { 
+        method: "DELETE" 
+      })
+        .then(res => {
+          console.log(res)
+          if (res.ok) this.getArticleComments(this.props.match.params.article_id);
+        })
+    }
+  }
+
   postComment = comment => {
     fetch(`https://pure-thicket-72217.herokuapp.com/api/articles/${this.props.match.params.article_id}/comments`, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify({
         comment: comment
       }),
-      headers: { 'Content-Type': 'application/json' }
+      headers: {"Content-Type": "application/json"}
     })
     .then(body => {
-        this.setState({value: ''})
+        this.setState({value: ""})
         this.getArticleComments(this.props.match.params.article_id);
       });
   }
@@ -80,6 +92,7 @@ class Comments extends Component {
                 <p>{comment.body}</p>
                 <p>User: <Link to={`/users/${comment.created_by}`}>{comment.created_by}</Link></p>
                 <p>Votes: {comment.votes}</p>
+                <button onClick={this.deleteComment.bind(null, comment._id, comment.created_by)}>Delete</button>
               </article>
           )
         })}

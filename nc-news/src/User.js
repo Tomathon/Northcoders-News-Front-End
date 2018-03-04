@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class User extends Component {
 
   state = {
-    username: '',
-    name: '',
-    avatar: ''
+    username: "",
+    name: "",
+    avatar: ""
   }
 
   componentDidMount() {
