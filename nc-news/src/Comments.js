@@ -10,9 +10,19 @@ class Comments extends Component {
     value: ""
   }
 
-  componentDidMount = article_id => {
+  componentDidMount() {
     this.getArticleComments(this.props.match.params.article_id)
     this.getArticle(this.props.match.params.article_id)
+  }
+
+  componentWillUpdate = article_id => {
+    this.getArticleComments(this.props.match.params.article_id)
+    this.getArticle(this.props.match.params.article_id)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.getArticleComments(nextProps.match.params.article_id);
+    this.getArticle(this.props.match.params.article_id);
   }
 
   handleChange = event => {
@@ -73,6 +83,22 @@ class Comments extends Component {
       })
   }
 
+  updateCommentVotes = (comment_id, vote) => {
+    fetch(`https://pure-thicket-72217.herokuapp.com/api/comments/${comment_id}?vote=${vote}`, { 
+      method: "PUT"
+    })
+      .then(buffer => buffer.json())
+      .then(res => {
+        const updatedComments = this.state.comments.map(comment => {
+          if (comment._id === res._id) return res;
+          else return comment;
+        });
+        this.setState({
+          comments: updatedComments
+        });
+      })
+  }
+
   render() {
     return (
       <div>
@@ -91,7 +117,9 @@ class Comments extends Component {
               <article key={i}>
                 <p>{comment.body}</p>
                 <p>User: <Link to={`/users/${comment.created_by}`}>{comment.created_by}</Link></p>
+                <button onClick={() => this.updateCommentVotes(comment._id, 'up')}>Up</button>
                 <p>Votes: {comment.votes}</p>
+                <button onClick={() => this.updateCommentVotes(comment._id, 'down')}>Down</button>
                 <button onClick={this.deleteComment.bind(null, comment._id, comment.created_by)}>Delete</button>
               </article>
           )
