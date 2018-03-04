@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Articles extends Component {
 
@@ -28,9 +29,10 @@ class Articles extends Component {
             {this.state.articles.map((article, i) => (
               <div key={i}>
                       <h3>{article.title}</h3>
-                      <p>Author: {article.created_by}</p>
-                      <p>{this.shortenStr(article.body)}</p>
-                      <p>Topic: {article.belongs_to}</p>
+                      <p>Author: <Link to={`/users/${article.created_by}`}>{article.created_by}</Link></p>
+                      <p><Link to={`/articles/${article._id}`}>{this.shortenStr(article.body)}</Link></p>
+                      <p>Topic: <Link to={`/topics/${article.belongs_to}`}>Topic: {article.belongs_to}</Link></p>
+                      <p><Link to={`/articles/${article._id}/comments`}>Coments</Link></p>
                       <p>Votes: {article.votes}</p>
               </div>
             ))}
