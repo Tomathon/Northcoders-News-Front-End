@@ -41,7 +41,7 @@ class Comments extends Component {
           return (
               <article key={i}>
               <p>{comment.body}</p>
-              <p>User: {comment.created_by}</p>
+              <p>User: <Link to={`/users/${comment.created_by}`}>{comment.created_by}</Link></p>
               <p>Votes: {comment.votes}</p>
               </article>
           )
