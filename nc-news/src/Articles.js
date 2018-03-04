@@ -11,6 +11,10 @@ class Articles extends Component {
     this.getArticles()
   }
 
+  componentWillUpdate() {
+    this.getArticles()
+  }
+
   getArticles = () => {
     fetch(`https://pure-thicket-72217.herokuapp.com/api/articles`)
       .then(buffer => buffer.json())
@@ -18,6 +22,22 @@ class Articles extends Component {
         this.setState({
           articles: res.articles
         })
+      })
+  }
+
+  updateArticleVotes = (article_id, vote) => {
+    fetch(`https://pure-thicket-72217.herokuapp.com/api/articles/${article_id}?vote=${vote}`, { 
+      method: "PUT"
+    })
+      .then(buffer => buffer.json())
+      .then(res => {
+        const updatedArticles = this.state.articles.map(article => {
+          if (article._id === res._id) return res;
+          else return article;
+        });
+        this.setState({
+          articles: updatedArticles
+        });
       })
   }
 
@@ -33,7 +53,9 @@ class Articles extends Component {
                       <p><Link to={`/articles/${article._id}`}>{this.shortenStr(article.body)}</Link></p>
                       <p>Topic: <Link to={`/topics/${article.belongs_to}/articles`}>{article.belongs_to}</Link></p>
                       <p><Link to={`/articles/${article._id}/comments`}>Comments</Link></p>
+                      <button onClick={() => this.updateArticleVotes(article._id, 'up')}>Up</button>
                       <p>Votes: {article.votes}</p>
+                      <button onClick={() => this.updateArticleVotes(article._id, 'down')}>Down</button>
               </div>
             ))}
           </div>
