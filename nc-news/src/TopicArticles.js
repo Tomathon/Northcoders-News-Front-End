@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class TopicArticles extends Component {
   
@@ -27,8 +28,10 @@ class TopicArticles extends Component {
             return (
               <div className="articles" key={i}>
                   <h3>{article.title}</h3>
-                  <p>Author: {article.created_by}</p>
-                  <p>{article.body}</p>
+                  <p>Author: <Link to={`/users/${article.created_by}`}>{article.created_by}</Link></p>
+                  <p><Link to={`/articles/${article._id}`}>{article.body}</Link></p>
+                  <p><Link to={`/articles/${article._id}/comments`}>Comments</Link></p>
+                  <p>Votes: {article.votes}</p>
               </div>
             )
         })}
