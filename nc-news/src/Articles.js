@@ -31,8 +31,8 @@ class Articles extends Component {
                       <h3>{article.title}</h3>
                       <p>Author: <Link to={`/users/${article.created_by}`}>{article.created_by}</Link></p>
                       <p><Link to={`/articles/${article._id}`}>{this.shortenStr(article.body)}</Link></p>
-                      <p>Topic: <Link to={`/topics/${article.belongs_to}`}>Topic: {article.belongs_to}</Link></p>
-                      <p><Link to={`/articles/${article._id}/comments`}>Coments</Link></p>
+                      <p>Topic: <Link to={`/topics/${article.belongs_to}/articles`}>{article.belongs_to}</Link></p>
+                      <p><Link to={`/articles/${article._id}/comments`}>Comments</Link></p>
                       <p>Votes: {article.votes}</p>
               </div>
             ))}
