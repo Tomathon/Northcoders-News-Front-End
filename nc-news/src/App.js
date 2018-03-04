@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './NavBar';
-// import Topics from './Topics';
+import Topics from './Topics';
 import TopicArticles from './TopicArticles';
 import Article from './Article';
 import Articles from './Articles';
@@ -40,7 +40,7 @@ class App extends Component {
           <div>
             <Route exact path='/' component={Articles}/>
             <Route exact path='/articles' component={Articles}/>
-            {/* <Route exact path='/topics' component={Topics}/> */}
+            <Route exact path='/topics' component={Topics}/>
             <Route exact path='/topics/:topic/articles' component={TopicArticles}/>
             <Route exact path='/articles/:article_id' component={Article}/>
             <Route exact path='/users/:user' component={User}/>

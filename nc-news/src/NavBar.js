@@ -11,6 +11,7 @@ class Navbar extends Component {
               <a key={i} href={`/topics/${topic.slug}/articles`}>{topic.title}</a>
             )
           })}
+          <NavLink to="/topics">All Topics</NavLink>
       </nav>
     )
   }

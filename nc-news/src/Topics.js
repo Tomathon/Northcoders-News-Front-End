@@ -27,7 +27,7 @@ class Topics extends Component {
         {this.state.topics.map((topic, i) => {
           return (
             <div key={i}> 
-              <Link to={`/${topic._id}/articles`}> 
+              <Link to={`topics/${topic.slug}/articles`}> 
                 <h2>{topic.title}</h2>
               </Link>
             </div>
