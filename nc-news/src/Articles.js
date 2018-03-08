@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import football from './images/football.jpeg';
+import cooking from './images/cooking.jpg';
+import coding from './images/coding.jpg';
+
 
 class Articles extends Component {
 
@@ -45,12 +49,13 @@ class Articles extends Component {
     return (
       <div>
         <h2>Latest Articles</h2>
-          <div className="articles">
+          <div className="Articles">
             {this.state.articles.map((article, i) => (
-              <div key={i}>
+              <div key={i} className="Article">
+                      <img src={this.loadImage(article.belongs_to)} alt={article.belongs_to}/>
                       <h3>{article.title}</h3>
+                      <p className="Article-body"><Link to={`/articles/${article._id}`}>{this.shortenStr(article.body)}</Link></p>
                       <p>Author: <Link to={`/users/${article.created_by}`}>{article.created_by}</Link></p>
-                      <p><Link to={`/articles/${article._id}`}>{this.shortenStr(article.body)}</Link></p>
                       <p>Topic: <Link to={`/topics/${article.belongs_to}/articles`}>{article.belongs_to}</Link></p>
                       <p><Link to={`/articles/${article._id}/comments`}>Comments</Link></p>
                       <button onClick={() => this.updateArticleVotes(article._id, 'up')}>Up</button>
@@ -68,10 +73,17 @@ class Articles extends Component {
     for (let i = 0; i < str.length; i++) {
         if (str[i] === ' ') spaces.push(i);
     }
-    let sliceIndex = spaces[Math.round((spaces.length - 1) / 2)];
+    let sliceIndex = spaces[Math.round((spaces.length - 1) / 10)];
     return str.slice(0, sliceIndex) + '...';
   }
 
+  loadImage = topic => {
+    let imgPath = '';
+    if (topic === 'football') imgPath=football
+    if (topic === 'cooking') imgPath=cooking
+    if (topic === 'coding') imgPath=coding
+    return imgPath
+  }
 }
 
 export default Articles;
