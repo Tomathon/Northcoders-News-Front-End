@@ -4,14 +4,14 @@ import { NavLink } from 'react-router-dom';
 class Navbar extends Component {
   render() {
     return (
-      <nav>
-          <NavLink to="/">Home</NavLink>
+      <nav className="navbar">
+          <NavLink to="/">HOME</NavLink>
           {this.props.topics.map((topic, i) => {
             return (
-              <a key={i} href={`/topics/${topic.slug}/articles`}>{topic.title}</a>
+              <a key={i} href={`/topics/${topic.slug}/articles`}>{topic.title.toUpperCase()}</a>
             )
           })}
-          <NavLink to="/topics">All Topics</NavLink>
+          <NavLink to="/topics">ALL TOPICS</NavLink>
       </nav>
     )
   }
