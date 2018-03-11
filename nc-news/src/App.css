@@ -23,13 +23,16 @@ Header
 ************/
 
 .App-header {
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  top: 0;
   height: 80px;
-  padding: 10px;
+  width: 80%;
   color: rgb(0, 0, 0);
-  text-align: center;
 }
 
 .App-title {
+  text-align: center;
   font-size: 2em;
   font-family: 'Playfair Display SC', serif;
   font-weight: bold;
@@ -40,11 +43,14 @@ Navbar
 ************/
 
 .navbar {
+  background-color: rgb(255, 255, 255);
+  padding: 2% 0;
+  position: fixed;
+  top: 80px;
+  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  max-width: 80%;
-  margin: 0 auto;
 }
 
 .navbar a {
@@ -61,6 +67,7 @@ Articles
 ************/
 
 .Articles {
+  margin-top: 10%;
   width: 100%;
   display: flex;
   flex-direction: row;
