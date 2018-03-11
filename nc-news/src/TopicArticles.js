@@ -23,10 +23,10 @@ class TopicArticles extends Component {
 
   render() {
     return (
-      <div>
+      <div className="Topic-articles">
         {this.state.articles.map((article, i) => {
             return (
-              <div className="articles" key={i}>
+              <div className="Topic-article" key={i}>
                   <h3>{article.title}</h3>
                   <p>Author: <Link to={`/users/${article.created_by}`}>{article.created_by}</Link></p>
                   <p><Link to={`/articles/${article._id}`}>{article.body}</Link></p>
