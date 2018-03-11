@@ -123,3 +123,28 @@ Votes
 .fa-thumbs-down:hover {
   cursor: pointer;
 }
+
+/***********
+Topics
+************/
+
+.Topics {
+  margin-top: 150px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Topic {
+  width: 30%;
+  text-align: center;
+}
+
+.Topic h2 {
+  color: rgb(0, 0, 0);
+}
+
+.Topic-image {
+  max-width: 100%;
+}

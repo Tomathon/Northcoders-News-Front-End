@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './App.css';
+import football from './images/football.jpeg';
+import cooking from './images/cooking.jpg';
+import coding from './images/coding.jpg';
 
 class Topics extends Component {
   
@@ -23,10 +27,11 @@ class Topics extends Component {
 
   render() {
     return (
-      <div>
+      <div className="Topics">
         {this.state.topics.map((topic, i) => {
           return (
-            <div key={i}> 
+            <div className="Topic" key={i}>
+              <img className="Topic-image" src={this.loadImage(topic.slug)} alt={topic.title}/>
               <Link to={`topics/${topic.slug}/articles`}> 
                 <h2>{topic.title}</h2>
               </Link>
@@ -36,6 +41,15 @@ class Topics extends Component {
       </div>
     )
   }
+
+  loadImage = topic => {
+    let imgPath = '';
+    if (topic === 'football') imgPath=football
+    if (topic === 'cooking') imgPath=cooking
+    if (topic === 'coding') imgPath=coding
+    return imgPath
+  }
+
 }
 
 export default Topics;
