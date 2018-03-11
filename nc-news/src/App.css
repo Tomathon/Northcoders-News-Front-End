@@ -106,7 +106,8 @@ Articles
   text-decoration: underline;
 }
 
-.Article img {
+.Article img,
+.Topic-image {
   max-width: 100%;
 }
 
@@ -145,6 +146,12 @@ Topics
   color: rgb(0, 0, 0);
 }
 
-.Topic-image {
-  max-width: 100%;
+/***********
+Users
+************/
+
+.User {
+  margin-top: 150px;
+  width: 100%;
+  text-align: center;
 }

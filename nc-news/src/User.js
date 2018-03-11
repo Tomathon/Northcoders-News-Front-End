@@ -26,7 +26,7 @@ class User extends Component {
 
   render() {
     return (
-      <div>
+      <div className="User">
         <img src={this.state.avatar} alt="profile"/>
         <h3>Username: {this.state.username}</h3>
         <h4>Name: {this.state.name}</h4>
