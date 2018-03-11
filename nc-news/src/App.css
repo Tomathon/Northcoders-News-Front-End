@@ -99,19 +99,27 @@ Articles
 }
 
 .Article p,
-.Topic-article p {
+.Topic-article p,
+.Article-single p {
   font-weight: 700;
 }
 
 .Article a,
-.Topic-article a {
+.Topic-article a,
+.Article-single a {
   color: rgba(0, 0, 0, .54);
   font-weight: 400;
 }
 
 .Article img,
-.Topic-image {
+.Topic-image,
+.Article-single img {
   max-width: 100%;
+}
+
+.Article-single {
+  margin-top: 20%;
+  text-align: justify;
 }
 
 /***********
