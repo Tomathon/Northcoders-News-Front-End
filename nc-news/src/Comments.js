@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './App.css';
 
 class Comments extends Component {
 
@@ -101,7 +102,7 @@ class Comments extends Component {
 
   render() {
     return (
-      <div>
+      <div className="Comments">
         <p><Link to={`/articles/${this.state.article._id}`}>Back to Article</Link></p>
         <form onSubmit={this.handleSubmit}>
           <div>
@@ -117,9 +118,9 @@ class Comments extends Component {
               <article key={i}>
                 <p>{comment.body}</p>
                 <p>User: <Link to={`/users/${comment.created_by}`}>{comment.created_by}</Link></p>
-                <button onClick={() => this.updateCommentVotes(comment._id, 'up')}>Up</button>
-                <p>Votes: {comment.votes}</p>
-                <button onClick={() => this.updateCommentVotes(comment._id, 'down')}>Down</button>
+                <i className="fa fa-thumbs-up" aria-hidden="true" onClick={() => this.updateCommentVotes(comment._id, 'up')}></i>
+                <p className="Vote">Votes: {comment.votes}</p>
+                <i className="fa fa-thumbs-down" aria-hidden="true" onClick={() => this.updateCommentVotes(comment._id, 'down')}></i>
                 <button onClick={this.deleteComment.bind(null, comment._id, comment.created_by)}>Delete</button>
               </article>
           )

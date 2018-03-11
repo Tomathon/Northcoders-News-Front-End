@@ -109,3 +109,17 @@ Articles
 .Article img {
   max-width: 100%;
 }
+
+/***********
+Votes
+************/
+
+.Vote {
+  display: inline-block;
+  margin: 0 5%;
+}
+
+.fa-thumbs-up:hover,
+.fa-thumbs-down:hover {
+  cursor: pointer;
+}

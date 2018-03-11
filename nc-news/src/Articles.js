@@ -58,9 +58,9 @@ class Articles extends Component {
                       <p>Author: <Link to={`/users/${article.created_by}`}>{article.created_by}</Link></p>
                       <p>Topic: <Link to={`/topics/${article.belongs_to}/articles`}>{article.belongs_to}</Link></p>
                       <p><Link to={`/articles/${article._id}/comments`}>Comments</Link></p>
-                      <button onClick={() => this.updateArticleVotes(article._id, 'up')}>Up</button>
-                      <p>Votes: {article.votes}</p>
-                      <button onClick={() => this.updateArticleVotes(article._id, 'down')}>Down</button>
+                      <i className="fa fa-thumbs-up" aria-hidden="true" onClick={() => this.updateArticleVotes(article._id, 'up')}></i>
+                      <p className="Vote">Votes: {article.votes}</p>
+                      <i className="fa fa-thumbs-down" aria-hidden="true" onClick={() => this.updateArticleVotes(article._id, 'down')}></i>
               </div>
             ))}
           </div>
