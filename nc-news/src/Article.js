@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import football from './images/football.jpeg';
+import cooking from './images/cooking.jpg';
+import coding from './images/coding.jpg';
 
 class Article extends Component {
 
@@ -44,7 +47,8 @@ class Article extends Component {
 
   render() {
     return (
-      <div>
+      <div className="Article-single">
+        <img src={this.loadImage(this.state.belongs_to)} alt={this.state.belongs_to}/>
         <h2>{this.state.title}</h2>
         <p>{this.state.body}</p>
         <p>Created by: <Link to={`/users/${this.state.created_by}`}>{this.state.created_by}</Link></p>
@@ -53,6 +57,14 @@ class Article extends Component {
         <p>Comments: <Link to={`${this.state._id}/comments`}>{this.state.comments.length}</Link></p>
       </div>
     )
+  }
+
+  loadImage = topic => {
+    let imgPath = '';
+    if (topic === 'football') imgPath=football
+    if (topic === 'cooking') imgPath=cooking
+    if (topic === 'coding') imgPath=coding
+    return imgPath
   }
 
 }
