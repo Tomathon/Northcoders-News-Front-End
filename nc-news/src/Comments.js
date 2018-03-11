@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './App.css';
 
 class Comments extends Component {
 
@@ -32,9 +31,7 @@ class Comments extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state.value)
     const comment = this.state.value;
-    console.log(comment)
     this.postComment(comment);
   }
 
@@ -44,7 +41,6 @@ class Comments extends Component {
         method: "DELETE" 
       })
         .then(res => {
-          console.log(res)
           if (res.ok) this.getArticleComments(this.props.match.params.article_id);
         })
     }
@@ -103,7 +99,7 @@ class Comments extends Component {
   render() {
     return (
       <div className="Comments">
-        <p><Link to={`/articles/${this.state.article._id}`}>Back to Article</Link></p>
+        <Link className="Article-link" to={`/articles/${this.state.article._id}`}>Back to Article</Link>
         <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="addComment">Add your comment</label>
@@ -115,13 +111,13 @@ class Comments extends Component {
         </form>
         {this.state.comments.map((comment, i) => {
           return (
-              <article key={i}>
+              <article className="Comment" key={i}>
                 <p>{comment.body}</p>
-                <p>User: <Link to={`/users/${comment.created_by}`}>{comment.created_by}</Link></p>
                 <i className="fa fa-thumbs-up" aria-hidden="true" onClick={() => this.updateCommentVotes(comment._id, 'up')}></i>
                 <p className="Vote">Votes: {comment.votes}</p>
                 <i className="fa fa-thumbs-down" aria-hidden="true" onClick={() => this.updateCommentVotes(comment._id, 'down')}></i>
-                <button onClick={this.deleteComment.bind(null, comment._id, comment.created_by)}>Delete</button>
+                <p>User: <Link className="User-link" to={`/users/${comment.created_by}`}>{comment.created_by}</Link></p>
+                <i className="fa fa-trash" aria-hidden="true" onClick={this.deleteComment.bind(null, comment._id, comment.created_by)}></i>
               </article>
           )
         })}

@@ -14,7 +14,10 @@ a {
   color: rgb(0, 0, 0);
 }
 
-a:hover {
+a:hover,
+.fa-thumbs-up:hover,
+.fa-thumbs-down:hover,
+.fa-trash:hover {
   cursor: pointer;
 }
 
@@ -120,11 +123,6 @@ Votes
   margin: 0 5%;
 }
 
-.fa-thumbs-up:hover,
-.fa-thumbs-down:hover {
-  cursor: pointer;
-}
-
 /***********
 Topics
 ************/
@@ -147,6 +145,28 @@ Topics
 }
 
 /***********
+Comments
+************/
+
+.Comments {
+  margin-top: 150px;
+  width: 100%;
+}
+
+.Comments form {
+  text-align: center;
+}
+
+.Comments textarea {
+  width: 40%;
+  height: 50px;
+}
+
+.Comment {
+  text-align: justify;
+}
+
+/***********
 Users
 ************/
 
@@ -154,4 +174,9 @@ Users
   margin-top: 150px;
   width: 100%;
   text-align: center;
+}
+
+.User-link:hover,
+.Article-link:hover {
+  text-decoration: underline;
 }
