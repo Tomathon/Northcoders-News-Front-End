@@ -2,7 +2,7 @@
 
 ### About
 
-A singe page web app for Norhcoders News, a Reddit-style social news, web content rating and discussion website built using REACT. The API for the data is also available on Github here](https://github.com/Tomathon/BE-FT-northcoders-news)
+A singe page web app for Norhcoders News, a Reddit-style social news, web content rating and discussion website built using REACT. The API for the data is also available on Github [here](https://github.com/Tomathon/BE-FT-northcoders-news)
 
 ### Installation
 
