@@ -65,7 +65,7 @@ class Comments extends Component {
       .then(buffer => buffer.json())
       .then(res => {
         this.setState({
-          comments: res.comments
+          comments: res.comments.reverse()
         })
       })
   }
