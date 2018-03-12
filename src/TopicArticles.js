@@ -27,9 +27,11 @@ class TopicArticles extends Component {
         {this.state.articles.map((article, i) => {
             return (
               <div className="Topic-article" key={i}>
+                <Link to={`/articles/${article._id}`}>
                   <h3>{article.title}</h3>
+                  <p>{article.body}</p>
+                </Link>
                   <p>Author: <Link to={`/users/${article.created_by}`}>{article.created_by}</Link></p>
-                  <p><Link to={`/articles/${article._id}`}>{article.body}</Link></p>
                   <p><Link to={`/articles/${article._id}/comments`}>Comments</Link></p>
                   <p>Votes: {article.votes}</p>
               </div>
