@@ -12,7 +12,8 @@ class Article extends Component {
     created_by: "",
     belongs_to: "",
     comments: [],
-    votes: 0
+    votes: 0,
+    _id: ""
   }
 
   componentDidMount() {
@@ -45,6 +46,17 @@ class Article extends Component {
       })
   }
 
+  updateArticleVotes = (article_id, vote) => {
+    fetch(`https://pure-thicket-72217.herokuapp.com/api/articles/${article_id}?vote=${vote}`, { 
+      method: "PUT"
+    })
+      .then(buffer => buffer.json())
+      .then(res => {
+        if (vote === 'up') this.setState({votes: this.state.votes + 1})
+        else if (vote === 'down' ) this.setState({votes: this.state.votes - 1})
+      });
+  }
+
   render() {
     return (
       <div className="Article-single">
@@ -53,7 +65,9 @@ class Article extends Component {
         <p>{this.state.body}</p>
         <p>Created by: <Link to={`/users/${this.state.created_by}`}>{this.state.created_by}</Link></p>
         <p>Topic: <Link to={`/topics/${this.state.belongs_to}/articles`}>{this.state.belongs_to}</Link></p>
-        <p>Votes: {this.state.votes}</p>
+        <i className="fa fa-thumbs-up" aria-hidden="true" onClick={() => this.updateArticleVotes(this.state._id, 'up')}></i>
+        <p className="Vote">Votes: {this.state.votes}</p>
+        <i className="fa fa-thumbs-down" aria-hidden="true" onClick={() => this.updateArticleVotes(this.state._id, 'down')}></i>
         <p>Comments: <Link to={`${this.state._id}/comments`}>{this.state.comments.length}</Link></p>
       </div>
     )
