@@ -12,7 +12,6 @@ class Navbar extends Component {
               <a key={i} href={`/topics/${topic.slug}/articles`}>{topic.title.toUpperCase()}</a>
             )
           })}
-          <NavLink to="/topics">ALL TOPICS</NavLink>
       </nav>
     )
   }
