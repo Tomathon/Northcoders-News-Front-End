@@ -52,9 +52,11 @@ class Articles extends Component {
           <div className="Articles">
             {this.state.articles.map((article, i) => (
               <div key={i} className="Article">
+                    <Link to={`/articles/${article._id}`}>
                       <img src={this.loadImage(article.belongs_to)} alt={article.belongs_to}/>
                       <h3>{article.title}</h3>
-                      <p className="Article-body"><Link to={`/articles/${article._id}`}>{this.shortenStr(article.body)}</Link></p>
+                      <p className="Article-body">{this.shortenStr(article.body)}</p>
+                    </Link>
                       <p>Author: <Link to={`/users/${article.created_by}`}>{article.created_by}</Link></p>
                       <p>Topic: <Link to={`/topics/${article.belongs_to}/articles`}>{article.belongs_to}</Link></p>
                       <p><Link to={`/articles/${article._id}/comments`}>Comments</Link></p>
