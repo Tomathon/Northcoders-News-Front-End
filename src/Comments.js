@@ -15,16 +15,6 @@ class Comments extends Component {
     this.getArticle(this.props.match.params.article_id)
   }
 
-  componentWillUpdate = article_id => {
-    this.getArticleComments(this.props.match.params.article_id)
-    this.getArticle(this.props.match.params.article_id)
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.getArticleComments(nextProps.match.params.article_id);
-    this.getArticle(this.props.match.params.article_id);
-  }
-
   handleChange = event => {
     this.setState({ value: event.target.value })
   }
@@ -99,7 +89,10 @@ class Comments extends Component {
   render() {
     return (
       <div className="Comments">
-        <Link className="Article-link" to={`/articles/${this.state.article._id}`}>Back to Article</Link>
+        <div>
+          <p>{this.state.article.title}</p>
+          <p>{this.state.article.body}</p>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="addComment">Add your comment</label>
