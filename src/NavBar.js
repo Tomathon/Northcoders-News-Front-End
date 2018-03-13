@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-class Navbar extends Component {
+ const Navbar = ({topics}) => {
 
-  render() {
     return (
       <nav className="navbar">
           <NavLink to="/">HOME</NavLink>
-          {this.props.topics.map((topic, i) => {
+          {topics.map((topic, i) => {
             return (
               <a key={i} href={`/topics/${topic.slug}/articles`}>{topic.title.toUpperCase()}</a>
             )
           })}
       </nav>
     )
-  }
   
 }
 
