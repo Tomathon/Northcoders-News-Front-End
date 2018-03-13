@@ -15,10 +15,6 @@ class Articles extends Component {
     this.getArticles()
   }
 
-  componentWillUpdate() {
-    this.getArticles()
-  }
-
   getArticles = () => {
     fetch(`https://pure-thicket-72217.herokuapp.com/api/articles`)
       .then(buffer => buffer.json())
@@ -35,12 +31,12 @@ class Articles extends Component {
     })
       .then(buffer => buffer.json())
       .then(res => {
-        const updatedArticles = this.state.articles.map(article => {
-          if (article._id === res._id) return res;
-          else return article;
+        this.state.articles.forEach(article => {
+          if (article._id === article_id && vote === 'up') article.votes += 1;
+          else if (article._id === article_id && vote === 'down') article.votes -=1;
         });
         this.setState({
-          articles: updatedArticles
+          articles: this.state.articles
         });
       })
   }
