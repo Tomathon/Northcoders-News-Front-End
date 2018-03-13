@@ -62,7 +62,7 @@ class Article extends Component {
       <div className="Article-single">
         <img src={this.loadImage(this.state.belongs_to)} alt={this.state.belongs_to}/>
         <h2>{this.state.title}</h2>
-        <p>{this.state.body}</p>
+        <p id="Article-single-body">{this.state.body}</p>
         <p>Created by: <Link to={`/users/${this.state.created_by}`}>{this.state.created_by}</Link></p>
         <p>Topic: <Link to={`/topics/${this.state.belongs_to}/articles`}>{this.state.belongs_to}</Link></p>
         <i className="fa fa-thumbs-up" aria-hidden="true" onClick={() => this.updateArticleVotes(this.state._id, 'up')}></i>
