@@ -90,7 +90,7 @@ class Comments extends Component {
     return (
       <div className="Comments">
         <div>
-          <p>{this.state.article.title}</p>
+          <h3>{this.state.article.title}</h3>
           <p>{this.state.article.body}</p>
         </div>
         <form onSubmit={this.handleSubmit}>
