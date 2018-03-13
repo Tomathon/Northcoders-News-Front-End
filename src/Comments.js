@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Comments extends Component {
 
@@ -119,5 +120,9 @@ class Comments extends Component {
   }
 
 }
+
+Comments.propTypes = {
+  article_id: PropTypes.string
+};
 
 export default Comments;

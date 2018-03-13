@@ -4,7 +4,6 @@ import football from './images/football.jpeg';
 import cooking from './images/cooking.jpg';
 import coding from './images/coding.jpg';
 
-
 class Articles extends Component {
 
   state = {

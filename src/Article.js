@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import football from './images/football.jpeg';
 import cooking from './images/cooking.jpg';
 import coding from './images/coding.jpg';
+import PropTypes from 'prop-types'
 
 class Article extends Component {
 
@@ -82,5 +83,9 @@ class Article extends Component {
   }
 
 }
+
+Article.propTypes = {
+  article_id: PropTypes.string
+};
 
 export default Article;

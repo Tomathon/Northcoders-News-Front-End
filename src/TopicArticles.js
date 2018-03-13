@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class TopicArticles extends Component {
   
@@ -60,5 +61,10 @@ class TopicArticles extends Component {
   }
 
 }
+
+TopicArticles.propTypes = {
+  article_id: PropTypes.string,
+  topic: PropTypes.string
+};
 
 export default TopicArticles;
