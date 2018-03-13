@@ -76,12 +76,12 @@ class Comments extends Component {
     })
       .then(buffer => buffer.json())
       .then(res => {
-        const updatedComments = this.state.comments.map(comment => {
-          if (comment._id === res._id) return res;
-          else return comment;
+        this.state.comments.forEach(comment => {
+          if (comment._id === comment_id && vote === 'up') comment.votes += 1;
+          else if (comment._id === comment_id && vote === 'down')comment.votes -=1;
         });
         this.setState({
-          comments: updatedComments
+          comments: this.state.comments
         });
       })
   }
