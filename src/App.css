@@ -85,11 +85,14 @@ Articles
   padding: 2%;
   width: 45%;
   border: 1px solid rgba(0, 0, 0, .13);
+  text-align: justify;
 }
 
-.Article h3 {
+.Article h3,
+.Topic-article h3 {
   display: flex;
   flex-wrap: wrap;
+  color: rgb(0, 0, 0);
 }
 
 .Article-body {
@@ -120,6 +123,10 @@ Articles
 .Article-single {
   margin-top: 20%;
   text-align: justify;
+}
+
+#Article-single-body {
+  font-weight: 400;
 }
 
 /***********
@@ -187,4 +194,23 @@ Users
 .User-link:hover,
 .Article-link:hover {
   text-decoration: underline;
+}
+
+/***********
+Media Queries
+************/
+
+@media screen and (max-width: 900px) {
+  
+  .Articles,
+  .Topic-articles {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Article,
+  .Topic-article {
+    width: 80%;
+  }
 }
