@@ -71,12 +71,19 @@ Articles
 
 .Articles,
 .Topic-articles {
-  margin-top: 13%;
   width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.Articles {
+  margin-top: 8%;
+}
+
+.Topic-articles {
+  margin-top: 12%;
 }
 
 .Article,
