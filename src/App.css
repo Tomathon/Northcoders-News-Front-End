@@ -207,7 +207,19 @@ Users
 Media Queries
 ************/
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1024px) {
+
+  .Articles {
+    margin-top: 12%;
+  }
+
+  .Topic-articles {
+    margin-top: 20%;
+  }
+
+}
+
+@media screen and (max-width: 750px) {
   
   .App-header {
     height: 120px;
@@ -222,7 +234,7 @@ Media Queries
   }
 
   .Topic-articles {
-    margin-top: 45%;
+    margin-top: 50%;
   }
 
   .Article-single {
