@@ -25,19 +25,17 @@ class Articles extends Component {
   }
 
   updateArticleVotes = (article_id, vote) => {
+    const updatedArticles = this.state.articles
+    updatedArticles.forEach(article => {
+      if (article._id === article_id && vote === "up") article.votes += 1;
+      else if (article._id === article_id && vote === "down") article.votes -= 1;
+    });
+    this.setState({
+      articles: this.state.articles
+    });
     fetch(`https://pure-thicket-72217.herokuapp.com/api/articles/${article_id}?vote=${vote}`, { 
       method: "PUT"
     })
-      .then(buffer => buffer.json())
-      .then(res => {
-        this.state.articles.forEach(article => {
-          if (article._id === article_id && vote === 'up') article.votes += 1;
-          else if (article._id === article_id && vote === 'down') article.votes -=1;
-        });
-        this.setState({
-          articles: this.state.articles
-        });
-      })
   }
 
   render() {
