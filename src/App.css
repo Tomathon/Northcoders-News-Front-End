@@ -209,6 +209,26 @@ Media Queries
 
 @media screen and (max-width: 900px) {
   
+  .App-header {
+    height: 120px;
+  }
+
+  .navbar {
+    top: 120px;
+  }
+
+  .Articles {
+    margin-top: 35%;
+  }
+
+  .Topic-articles {
+    margin-top: 45%;
+  }
+
+  .Article-single {
+    margin-top: 50%;
+  }
+
   .Articles,
   .Topic-articles {
     flex-direction: column;
