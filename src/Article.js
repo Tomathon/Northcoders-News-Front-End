@@ -48,14 +48,11 @@ class Article extends Component {
   }
 
   updateArticleVotes = (article_id, vote) => {
+    if (vote === 'up') this.setState({votes: this.state.votes + 1})
+    else if (vote === 'down' ) this.setState({votes: this.state.votes - 1})
     fetch(`https://pure-thicket-72217.herokuapp.com/api/articles/${article_id}?vote=${vote}`, { 
       method: "PUT"
     })
-      .then(buffer => buffer.json())
-      .then(res => {
-        if (vote === 'up') this.setState({votes: this.state.votes + 1})
-        else if (vote === 'down' ) this.setState({votes: this.state.votes - 1})
-      });
   }
 
   render() {
