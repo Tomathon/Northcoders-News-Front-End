@@ -72,19 +72,17 @@ class Comments extends Component {
   }
 
   updateCommentVotes = (comment_id, vote) => {
+    const updatedCommentVotes = this.state.comments
+    updatedCommentVotes.forEach(comment => {
+      if (comment._id === comment_id && vote === 'up') comment.votes += 1;
+      else if (comment._id === comment_id && vote === 'down')comment.votes -=1;
+    });
+    this.setState({
+      comments: this.state.comments
+    });
     fetch(`https://pure-thicket-72217.herokuapp.com/api/comments/${comment_id}?vote=${vote}`, { 
       method: "PUT"
     })
-      .then(buffer => buffer.json())
-      .then(res => {
-        this.state.comments.forEach(comment => {
-          if (comment._id === comment_id && vote === 'up') comment.votes += 1;
-          else if (comment._id === comment_id && vote === 'down')comment.votes -=1;
-        });
-        this.setState({
-          comments: this.state.comments
-        });
-      })
   }
 
   render() {
