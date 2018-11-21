@@ -2,7 +2,7 @@
 
 ### About
 
-A single page web app for Northcoders News, a Reddit-style social news, web content rating and discussion website built using REACT 16.2.0 and Node 8.4.0. This app has been deployed [here](https://immense-reef-13817.herokuapp.com).
+A single page web app for Northcoders News, a Reddit-style social news, web content rating and discussion website built using REACT 16.2.0 and Node 8.4.0.
 
 The API for the data is also available on Github [here](https://github.com/Tomathon/BE-FT-northcoders-news)
 
